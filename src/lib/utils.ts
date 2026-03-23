@@ -11,6 +11,8 @@ export function getStrapiURL() {
 }
 
 export function getStrapiMedia(url: string | null) {
+  console.log("url", url);
+  console.log("dff", `${getStrapiURL()}${url}`);
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
   if (url.startsWith("http") || url.startsWith("//")) return url;
@@ -24,44 +26,6 @@ export function formatDate(date: string, locale: string) {
     day: "numeric",
   }).format(new Date(date));
 }
-
-// export function mapSeoToMetadata(seo: any) {
-//   if (!seo) return {};
-
-//   return {
-//     title: seo.metaTitle,
-//     description: seo.metaDescription,
-//     keywords: seo.keywords,
-//     robots: seo.metaRobots,
-//     viewport: seo.metaViewport,
-
-//     alternates: {
-//       canonical: seo.canonicalURL,
-//     },
-
-//     openGraph: {
-//       title: seo.openGraph?.["og:title"],
-//       description: seo.openGraph?.["og:description"],
-//       url: seo.openGraph?.["og:url"],
-//       // type: seo.openGraph?.["og:type"],
-//       images: seo.metaImage?.url
-//         ? [
-//             {
-//               url: process.env.NEXT_PUBLIC_STRAPI_URL + seo.metaImage.url,
-//               width: seo.metaImage.width,
-//               height: seo.metaImage.height,
-//             },
-//           ]
-//         : [],
-//     },
-
-//     other: seo.structuredData
-//       ? {
-//           "script:ld+json": JSON.stringify(seo.structuredData),
-//         }
-//       : {},
-//   };
-// }
 
 export function mapSeoToMetadata(seo: any): Metadata {
   if (!seo) return {};
