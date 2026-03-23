@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "api.deciphone.com",
-
         pathname: "/uploads/**",
       },
     ],
