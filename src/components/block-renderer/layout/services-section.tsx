@@ -51,7 +51,7 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
             <div className="space-y-4">
               <CardHeader
                 title={servicecard[0]?.heading ?? ""}
-                icon={getIcon(servicecard[0].icon)}
+                icon={getIcon(servicecard[0]?.icon)}
                 //IconTraining
                 size="lg"
               />
@@ -63,9 +63,9 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
 
             <div className="mt-auto">
               <StrapiImage
-                src={servicecard[0]?.images[0]?.url || ""}
+                src={servicecard[0]?.images?.[0]?.url || ""}
                 alt={
-                  servicecard[0]?.images[0]?.alternativeText ??
+                  servicecard[0]?.images?.[0]?.alternativeText ??
                   "Consulting Service"
                 }
                 className="h-36 object-cover"
@@ -85,7 +85,7 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="space-y-4">
                 <CardHeader
                   title={servicecard[1]?.heading ?? ""}
-                  icon={getIcon(servicecard[1].icon)}
+                  icon={getIcon(servicecard[1]?.icon)}
                   size="lg"
                 />
 
@@ -97,20 +97,20 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="mt-auto flex flex-col sm:flex-row gap-4">
                 <div className="flex-1 overflow-hidden rounded">
                   <StrapiImage
-                    src={servicecard[1]?.images[0]?.url || ""}
+                    src={servicecard[1]?.images?.[0]?.url || ""}
                     alt={
-                      servicecard[1]?.images[0]?.alternativeText || "Assessment"
+                      servicecard[1]?.images?.[0]?.alternativeText || "Assessment"
                     }
                     className="h-48 object-cover"
                   />
                 </div>
 
-                {servicecard[1]?.images[1]?.url && (
+                {servicecard[1]?.images?.[1]?.url && (
                   <div className="w-full sm:w-40 overflow-hidden rounded">
                     <StrapiImage
-                      src={servicecard[1]?.images[1]?.url || ""}
+                      src={servicecard[1]?.images?.[1]?.url || ""}
                       alt={
-                        servicecard[1]?.images[1]?.alternativeText ||
+                        servicecard[1]?.images?.[1]?.alternativeText ||
                         "Assessment 2"
                       }
                       className="h-48 object-cover object-bottom-right"
@@ -156,11 +156,11 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
             <div className="w-full">
               <StrapiImage
                 src={
-                  servicecard[2]?.images[0]?.url ||
-                  servicecard[2]?.images[0]?.url
+                  servicecard[2]?.images?.[0]?.url ||
+                  servicecard[2]?.images?.[0]?.url
                 }
                 alt={
-                  servicecard[2]?.images[0]?.alternativeText ||
+                  servicecard[2]?.images?.[0]?.alternativeText ||
                   "Training Service"
                 }
                 className="object-contain"
@@ -177,7 +177,7 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="space-y-4">
                 <CardHeader
                   title={servicecard[3]?.heading ?? ""}
-                  icon={getIcon(servicecard[3].icon)}
+                  icon={getIcon(servicecard[3]?.icon)}
                   size="md"
                 />
 
@@ -190,11 +190,11 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
                 <div className="bg-linear-to-b from-red-600 to-red-800 rounded p-4">
                   <StrapiImage
                     src={
-                      servicecard[3]?.images[0]?.url ||
-                      servicecard[3]?.images[0]?.url
+                      servicecard[3]?.images?.[0]?.url ||
+                      servicecard[3]?.images?.[0]?.url
                     }
                     alt={
-                      servicecard[3]?.images[0]?.alternativeText ||
+                      servicecard[3]?.images?.[0]?.alternativeText ||
                       "Integration Service"
                     }
                   />
@@ -210,7 +210,7 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="space-y-4">
                 <CardHeader
                   title={servicecard[4]?.heading ?? ""}
-                  icon={getIcon(servicecard[4].icon)}
+                  icon={getIcon(servicecard[4]?.icon)}
                   size="md"
                 />
 
@@ -222,11 +222,11 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="mt-auto">
                 <StrapiImage
                   src={
-                    servicecard[4]?.images[0]?.url ||
-                    servicecard[4]?.images[0]?.url
+                    servicecard[4]?.images?.[0]?.url ||
+                    servicecard[4]?.images?.[0]?.url
                   }
                   alt={
-                    servicecard[4]?.images[0]?.alternativeText || "OT Service"
+                    servicecard[4]?.images?.[0]?.alternativeText || "OT Service"
                   }
                   className="object-cover"
                 />
@@ -241,7 +241,7 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
               <div className="space-y-4">
                 <CardHeader
                   title={servicecard[5]?.heading ?? ""}
-                  icon={getIcon(servicecard[5].icon)}
+                  icon={getIcon(servicecard[5]?.icon)}
                   size="md"
                 />
 
@@ -252,9 +252,9 @@ function ServicesCardsClient({ servicecard }: { servicecard: ServiceCard[] }) {
 
               <div className="mt-auto">
                 <StrapiImage
-                  src={servicecard[5]?.images[0]?.url ?? ""}
+                  src={servicecard[5]?.images?.[0]?.url ?? ""}
                   alt={
-                    servicecard[5]?.images[0]?.alternativeText ??
+                    servicecard[5]?.images?.[0]?.alternativeText ??
                     "Cloud Security"
                   }
                   className="rounded object-cover"
@@ -278,6 +278,7 @@ import Link from "next/link";
 export default function ServiceSection(data: Readonly<ServicesProps>) {
   if (!data) return null;
   const { heading, label, description, servicecard } = data;
+  if (!servicecard?.length) return null;
   return (
     <>
       {" "}

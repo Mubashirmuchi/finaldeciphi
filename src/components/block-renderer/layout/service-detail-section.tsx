@@ -90,7 +90,15 @@ function ServiceDetailSection(data: Readonly<TServiceDetailSection>) {
           <div className="relative z-10 mx-6 -mb-8">
             <div className="bg-white rounded-2xl shadow-xl px-8 pt-6 pb-8 border border-gray-100">
               <p className="text-gray-800 text-base md:text-lg font-medium max-w-lg">
+                <span className="text-blue-700 text-3xl md:text-4xl align-top leading-none mr-1">
+                  &ldquo;
+                </span>
+
                 {quote}
+
+                <span className="text-blue-700 text-3xl md:text-4xl align-bottom leading-none ml-1">
+                  &rdquo;
+                </span>
               </p>
             </div>
           </div>
@@ -114,13 +122,13 @@ function ServiceDetailSection(data: Readonly<TServiceDetailSection>) {
             <HighlightHeading
               segments={boldtext}
               id="service-detailpage"
-              className="text-[3.5rem] font-extrabold mb-10"
+              className="text-[3.5rem] font-extrabold mb-10 max-w-sm"
             />
 
             <ul className="flex flex-col gap-3">
               {points?.map((item: Point) => (
                 <li key={item.id} className="flex items-center gap-3">
-                  <span className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center">
+                  <span className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center text-white">
                     ✓
                   </span>
                   <span className="text-sm text-gray-600">{item.point}</span>
@@ -157,8 +165,8 @@ function ServiceDetailSection(data: Readonly<TServiceDetailSection>) {
           {/* Center */}
           <div className="hidden lg:block w-[320px] rounded-2xl overflow-hidden">
             <StrapiImage
-              src={cardImage.url}
-              alt={cardImage.alternativeText || "Service image"}
+              src={cardImage?.url}
+              alt={cardImage?.alternativeText || "Service image"}
               className="w-full h-full object-cover"
             />
           </div>

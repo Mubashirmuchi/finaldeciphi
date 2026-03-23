@@ -17,8 +17,8 @@ export function ContentWithImage(data: Readonly<ContentWithImageProps>) {
     >
       <div className="relative flex-1">
         <StrapiImage
-          src={image.url}
-          alt={image.name}
+          src={image?.url}
+          alt={image?.name}
           width={713}
           height={497.7}
           className="rounded-xl border border-border shadow-lg"

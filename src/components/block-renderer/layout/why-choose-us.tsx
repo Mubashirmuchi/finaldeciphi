@@ -25,8 +25,8 @@ function WhyChooseUsSection({ ...data }: Readonly<WhyChooseUsProps>) {
         {/* IMAGE */}
         <figure className="order-1 lg:order-2 relative rounded-xl overflow-hidden h-130 shadow-2xl shadow-black/15">
           <StrapiImage
-            src={image.url ?? "/placeholder.jpg"}
-            alt={image.alternativeText ?? "Cybersecurity dashboard"}
+            src={image?.url ?? "/placeholder.jpg"}
+            alt={image?.alternativeText ?? "Cybersecurity dashboard"}
             className="absolute inset-0 w-full h-full object-cover"
             priority
           />

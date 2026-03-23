@@ -1,24 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  ChevronDown,
-  ChevronRight,
-  Menu,
-  X,
-  HeartHandshake,
-  Bug,
-  ShieldAlert,
-  MonitorCog,
-  Bolt,
-  Cloud,
-} from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { StrapiImage } from "@/components/custom/StrapiImage";
 import { LanguageSelector } from "./language-selector";
 
 import { Image, NavLink, SubNav } from "@/types";
 import { usePathname } from "next/navigation";
+import { getIcon, IconMap, IconName } from "../custom/iconMap";
 
 interface HeaderProps {
   data: {
@@ -28,15 +18,6 @@ interface HeaderProps {
   };
   locale: string;
 }
-
-const IconMap = {
-  HeartHandshake,
-  Bug,
-  ShieldAlert,
-  MonitorCog,
-  Bolt,
-  Cloud,
-};
 
 function MobileSubmenu({
   items,
@@ -51,7 +32,8 @@ function MobileSubmenu({
     <div className="overflow-hidden">
       <div className="mx-3 mt-1 mb-2 pl-3 border-l-2 border-[#8B1A1A]/40 flex flex-col">
         {items.map((sub, i) => {
-          const Icon = IconMap[sub.icon as keyof typeof IconMap];
+          const Icon = getIcon(sub.icon as IconName);
+
           const href = sub.href ?? "#";
 
           return (
@@ -188,6 +170,7 @@ export default function Navigation({ data, locale }: HeaderProps) {
                             const Icon =
                               IconMap[sub.icon as keyof typeof IconMap];
 
+                            console.log("sub.icon", sub.icon);
                             return (
                               <Link
                                 key={sub.id}

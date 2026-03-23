@@ -85,6 +85,11 @@ import {
   CircleAlert,
   Mail,
   CircleCheckBig,
+  HeartHandshake,
+  Bug,
+  ShieldAlert,
+  MonitorCog,
+  Bolt,
 } from "lucide-react";
 
 export const IconMap = {
@@ -109,6 +114,11 @@ export const IconMap = {
   CircleCheckBig,
   CircleAlert,
   Globe,
+  HeartHandshake,
+  Bug,
+  ShieldAlert,
+  MonitorCog,
+  Bolt,
 } as const;
 
 export type IconName = keyof typeof IconMap;

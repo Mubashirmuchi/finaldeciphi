@@ -6,8 +6,8 @@ export default function ImagePanel({ item }: { item: Accordian }) {
   return (
     <div className="relative w-full h-[260px] md:h-[480px] rounded-3xl overflow-hidden">
       <StrapiImage
-        src={item.image.url}
-        alt={item.image.alternativeText ?? item.heading}
+        src={item.image?.url}
+        alt={item.image?.alternativeText ?? item.heading}
         className="w-full h-full object-cover"
       />
 

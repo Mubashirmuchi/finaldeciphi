@@ -10,27 +10,31 @@ export function Hero(data: Readonly<HeroProps>) {
   return (
     <section
       id="home"
-      className="hero relative min-h-screen flex items-center justify-center w-full"
+      className="hero relative min-h-screen flex items-center justify-center w-full animate-fadeIn"
     >
       {/* Background Video with Fallback */}
 
       <div className="absolute inset-0 -z-10 lg:hidden">
-        <StrapiImage
-          src={getStrapiMedia(image?.url) || "/fallback-hero.jpg"}
-          alt={image?.alternativeText || "Fallback hero image"}
-          className="object-cover"
-          priority
-        />
+        {image && (
+          <StrapiImage
+            src={getStrapiMedia(image?.url) || "/fallback-hero.jpg"}
+            alt={image?.alternativeText || "Fallback hero image"}
+            className="object-cover"
+            priority
+          />
+        )}
       </div>
 
       {/* Video for desktop */}
       <div className="hidden lg:block">
         {/* <BackgroundVideo src={videoUrl || ""} /> */}
-        <BackgroundVideo
-          src={getStrapiMedia(video?.url || "") || ""}
-          overlay={true}
-          crossfadeDuration={1.8} // seconds — tune to your video
-        />
+        {video && (
+          <BackgroundVideo
+            src={getStrapiMedia(video?.url || "") || ""}
+            overlay={true}
+            crossfadeDuration={1.8} // seconds — tune to your video
+          />
+        )}
       </div>
 
       <div className="absolute inset-0 -z-10 bg-black/70 lg:bg-black/5" />

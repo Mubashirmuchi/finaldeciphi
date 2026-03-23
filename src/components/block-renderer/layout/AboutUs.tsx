@@ -29,9 +29,9 @@ export default function AboutSection({ ...data }: Readonly<AboutUsProps>) {
         {/* IMAGE / MEDIA */}
         <figure className="relative rounded-xl overflow-hidden h-130 shadow-2xl shadow-black/15">
           <StrapiImage
-            src={cardImage.url ?? "/placeholder.jpg"}
+            src={cardImage?.url ?? "/placeholder.jpg"}
             alt={
-              cardImage.alternativeText ?? "Cybersecurity monitoring dashboard"
+              cardImage?.alternativeText ?? "Cybersecurity monitoring dashboard"
             }
             className="absolute inset-0 w-full h-full object-cover"
             priority
