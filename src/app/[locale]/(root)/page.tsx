@@ -20,7 +20,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
 
   const data = await getLandingPage(locale);
   const blocks = data?.data?.blocks;
-  const { structuredData } = data?.data?.seo;
+  const { structuredData } = data?.data?.seo ?? {};
   if (!blocks) {
     return (
       <div className="flex min-h-screen items-center justify-center text-center">
