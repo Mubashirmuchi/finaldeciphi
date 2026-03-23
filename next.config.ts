@@ -11,20 +11,10 @@ const nextConfig: NextConfig = {
     }),
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "43.204.19.133",
-        port: "1337",
-        pathname: "/uploads/**",
-      },
+        protocol: "https",
+        hostname: "api.deciphone.com",
 
-      {
-        protocol: "https",
-        hostname: "*.strapi.io",
         pathname: "/uploads/**",
-      },
-      {
-        protocol: "https",
-        hostname: "*.strapiapp.com",
       },
     ],
   },
