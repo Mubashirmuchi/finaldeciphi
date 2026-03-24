@@ -1,7 +1,10 @@
+export const revalidate = 60;
+
 import { getLandingPage } from "@/data/loaders";
 import { BlockRenderer } from "@/components/block-renderer";
 import { mapSeoToMetadata } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {

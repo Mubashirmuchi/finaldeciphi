@@ -4,7 +4,9 @@ import { getAllPagesSlugs, getPageBySlug } from "@/data/loaders";
 import { BlockRenderer } from "@/components/block-renderer";
 import NotFoundPage from "@/app/[locale]/not-found";
 
-const BASE_URL = "https://yourdomain.com";
+export const dynamic = "force-dynamic";
+
+const BASE_URL = "https://deciphi.com";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string[] }>;

@@ -3,7 +3,7 @@ import { Footer, Navigation } from "@/components/layout";
 import { getGlobalPageData } from "@/data/loaders";
 import { mapSeoToMetadata } from "@/lib/utils";
 
-// app/[locale]/layout.tsx
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata(params: Promise<{ locale: string }>) {
   const { locale } = await params;

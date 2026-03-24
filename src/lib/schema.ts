@@ -1,46 +1,48 @@
 export function generateOrganizationSchema(locale: string) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Your Company Name',
-    url: `https://yourdomain.com/${locale}`,
-    logo: 'https://yourdomain.com/logo.png',
-    description: 'Professional services and solutions for your business needs',
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Deciphi",
+    url: `https://deciphi.com/${locale}`,
+    logo: "https://deciphi.com/logo.png",
+    description: "Professional services and solutions for your business needs",
     address: {
-      '@type': 'PostalAddress',
-      addressCountry: locale === 'ar' ? 'AE' : 'US',
+      "@type": "PostalAddress",
+      addressCountry: locale === "ar" ? "AE" : "US",
     },
     sameAs: [
-      'https://twitter.com/yourcompany',
-      'https://github.com/yourcompany',
-      'https://youtube.com/yourcompany',
+      "https://twitter.com/deciphi",
+      "https://github.com/deciphi",
+      "https://youtube.com/deciphi",
     ],
-  }
+  };
 }
 
 export function generateWebPageSchema(
   title: string,
   description: string,
-  url: string
+  url: string,
 ) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
     name: title,
     description,
     url,
-  }
+  };
 }
 
-export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+export function generateBreadcrumbSchema(
+  items: { name: string; url: string }[],
+) {
   return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
       item: item.url,
     })),
-  }
+  };
 }

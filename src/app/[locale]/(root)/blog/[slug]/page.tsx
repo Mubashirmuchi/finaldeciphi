@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -10,7 +12,7 @@ import BlockRendererClient from "@/components/custom/markdown-text";
 import ShareButtons from "@/components/custom/shareButton";
 import { formatDate } from "@/lib/utils";
 
-const BASE_URL = "https://yourdomain.com";
+const BASE_URL = "https://deciphi.com";
 
 interface PageProps {
   params: Promise<{ slug: string; locale: string }>;
