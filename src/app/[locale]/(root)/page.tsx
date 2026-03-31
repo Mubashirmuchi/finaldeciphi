@@ -25,7 +25,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
   if (!blocks) {
     return (
       <div className="flex min-h-screen items-center justify-center text-center">
-        <p>Content is temporarily unavailable. Please try again later..</p>
+        <p>Content is temporarily unavailable. Please try again later....x</p>
       </div>
     );
   }
