@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { StrapiImage } from "@/components/custom/StrapiImage";
-import { LanguageSelector } from "./language-selector";
+// import { LanguageSelector } from "./language-selector";
 
 import { Image, NavLink, SubNav } from "@/types";
 import { usePathname } from "next/navigation";
@@ -154,14 +154,14 @@ export default function Navigation({ data, locale }: HeaderProps) {
                   >
                     {item.text}
 
-                    {hasSubmenu && (
+                    {/* {hasSubmenu && (
                       <span>
                         <ChevronDown size={13} />
                       </span>
-                    )}
+                    )} */}
                   </Link>
 
-                  <>
+                  {/* <>
                     {hasSubmenu && activeMenu === item.text && (
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 z-50 w-145">
                         <div className="relative bg-white rounded-md shadow-xl border p-2 grid grid-cols-2 gap-2">
@@ -200,14 +200,14 @@ export default function Navigation({ data, locale }: HeaderProps) {
                         </div>
                       </div>
                     )}
-                  </>
+                  </> */}
                 </div>
               );
             })}
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
             <Link
               href={`/${locale}/contact`}
               className="text-white font-medium overflow-hidden shadow-lg bg-[radial-gradient(circle_at_30%_30%,#AC1B1B_0%,#731212_52%,#460B0B_95%)] hover:brightness-110  inline-flex items-center justify-center h-9 px-4 py-2 rounded-md text-sm transition-colors"
@@ -219,7 +219,7 @@ export default function Navigation({ data, locale }: HeaderProps) {
           </div>
 
           <div className="flex md:hidden items-center gap-2">
-            <LanguageSelector />
+            {/* <LanguageSelector /> */}
 
             <button
               aria-label="Toggle menu"
@@ -256,12 +256,12 @@ export default function Navigation({ data, locale }: HeaderProps) {
           >
             <nav className="p-3 flex flex-col">
               {navItems.map((item) => {
-                const hasSubmenu = !!item.subnav?.length;
-                const isExpanded = mobileExpanded === item.text;
+                // const hasSubmenu = !!item.subnav?.length;
+                // const isExpanded = mobileExpanded === item.text;
 
                 return (
                   <div key={item.id}>
-                    {hasSubmenu ? (
+                    {/* {hasSubmenu ? (
                       <>
                         <button
                           onClick={() =>
@@ -283,18 +283,20 @@ export default function Navigation({ data, locale }: HeaderProps) {
                           isOpen={isExpanded}
                         />
                       </>
-                    ) : (
-                      <Link
-                        href={
-                          item.href?.startsWith("#")
-                            ? `/${locale}${item.href}`
-                            : (item.href ?? "#")
-                        }
-                        className="block w-full px-4 py-3 text-sm text-white/80 hover:bg-white/8 rounded-xl"
-                      >
-                        {item.text}
-                      </Link>
-                    )}
+                    ) : 
+                     */}
+                    {/* ( */}
+                    <Link
+                      href={
+                        item.href?.startsWith("#")
+                          ? `/${locale}${item.href}`
+                          : (item.href ?? "#")
+                      }
+                      className="block w-full px-4 py-3 text-sm text-white/80 hover:bg-white/8 rounded-xl"
+                    >
+                      {item.text}
+                    </Link>
+                    {/* )} */}
                   </div>
                 );
               })}
